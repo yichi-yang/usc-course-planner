@@ -1,9 +1,8 @@
 class Section:
 
     weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"]
-    starting_minutes = [0, 1440, 2880, 4320, 5760]
 
-    def __init__(self, name, section_id, section_type, time, days, registered, closed, instructor, location):
+    def __init__(self, name, section_id, section_type, time, days, registered, closed, instructor, location, apply_penalty=True):
         self.name = name
         self.section_id = section_id
         self.section_type = section_type
@@ -13,20 +12,24 @@ class Section:
         self.closed = closed
         self.instructor = instructor
         self.location = location
-        self.time_durations = []
+        self.days_list = []
+        self.start_end = tuple()
+        self.apply_penalty = apply_penalty
 
         split = self.time.find("-")
         if split >= 0:
             start = time2minutes(self.time[:split])
             end = time2minutes(self.time[split + 1:-2])
-            if self.time[-2:] == "pm":
+            if self.time[-2:] == "pm" and end < 720:  # 12:30 pm
                 start += 720
                 end += 720
+            if start > end:
+                start -= 720
+            self.start_end = (start, end)
 
             for i in range(5):
                 if self.days.find(Section.weekdays[i]) >= 0:
-                    self.time_durations.append(
-                        (start + Section.starting_minutes[i], end + Section.starting_minutes[i]))
+                    self.days_list.append(i)
 
     def __str__(self):
         return (self.name + "; " + self.section_id + "; " + self.section_type + "; "

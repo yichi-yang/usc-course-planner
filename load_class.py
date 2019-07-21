@@ -13,7 +13,6 @@ def load_class(class_name, base_url):
         # print(soup.prettify())
         sections = soup.select("tr[data-section-id]")
         this_class = {}
-        this_class["name"] = class_name
         for section in sections:
             session_id = section.find("td", class_="section").get_text()[:5]
             session_type = section.find("td", class_="type").get_text()

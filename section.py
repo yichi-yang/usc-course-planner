@@ -37,6 +37,9 @@ class Section:
                 + (" (closed)" if self.closed else "") + "; "
                 + self.instructor + "; " + self.location)
 
+    def __lt__(self, other):
+        return self.section_id < other.section_id
+
 
 def time2minutes(time):
     split = time.find(":")

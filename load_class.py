@@ -3,18 +3,20 @@
 import requests
 from bs4 import BeautifulSoup
 from section import Section
+from class_tree_node import ClassTreeNode
 
 
-def load_class(class_name, base_url):
-    print(base_url + class_name + "/")
-    response = requests.get(base_url + class_name + "/")
+def load_class(url, class_name):  
+    try:
+        response = requests.get(url)
+    except requests.exceptions.ConnectionError:
+        return None
     if response:
         soup = BeautifulSoup(response.text, "html.parser")
-        # print(soup.prettify())
         sections = soup.select("tr[data-section-id]")
         this_class = {}
         for section in sections:
-            session_id = section.find("td", class_="section").get_text()[:5]
+            session_id = section.find("td", class_="section").get_text()
             session_type = section.find("td", class_="type").get_text()
             time = section.find("td", class_="time").get_text()
             days = section.find("td", class_="days").get_text()
@@ -28,7 +30,17 @@ def load_class(class_name, base_url):
             if session_type not in this_class:
                 this_class[session_type] = []
             this_class[session_type].append(current_section)
-        return this_class
+        
+        if not this_class:
+            return None
+        
+        class_tree_node = ClassTreeNode(class_name, None)
+        for key, val in this_class.items():
+            component_node = ClassTreeNode(key, class_tree_node)
+            component_node.data = [ClassTreeNode(
+                section.section_id, component_node, section) for section in val]
+            class_tree_node.data.append(component_node)
+        return class_tree_node
     else:
         return None
 

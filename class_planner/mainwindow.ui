@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>YYC's Course Planner</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="addClassTab">
+       <attribute name="title">
+        <string>My Course Bin</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="promptLabel">
+          <property name="text">
+           <string>Enter term and course name and click &quot;Add&quot;.</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="termLabel">
+            <property name="text">
+             <string>Term Code:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="termLineEdit">
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="maxLength">
+             <number>5</number>
+            </property>
+            <property name="echoMode">
+             <enum>QLineEdit::Normal</enum>
+            </property>
+            <property name="placeholderText">
+             <string>20xxx</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="courseNameLabel">
+            <property name="text">
+             <string>Course Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="classNameLineEdit">
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="maxLength">
+             <number>8</number>
+            </property>
+            <property name="placeholderText">
+             <string>abcd-101</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="addClassButton">
+            <property name="text">
+             <string>Add</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTreeView" name="treeView"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="setPolicyTab">
+       <attribute name="title">
+        <string>Scheduling Policy</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="title">
+           <string>I love getting up early.</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>Yes</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="earlyHorizontalSlider">
+               <property name="minimum">
+                <number>-100</number>
+               </property>
+               <property name="maximum">
+                <number>100</number>
+               </property>
+               <property name="value">
+                <number>0</number>
+               </property>
+               <property name="sliderPosition">
+                <number>0</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+               <property name="tickInterval">
+                <number>50</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>No</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="getUpEarlyLabel">
+               <property name="text">
+                <string>How early is early?</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTimeEdit" name="earlyTimeEdit"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="title">
+           <string>I love getting home late.</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <item>
+              <widget class="QLabel" name="label_7">
+               <property name="text">
+                <string>Yes</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="lateHorizontalSlider">
+               <property name="minimum">
+                <number>-100</number>
+               </property>
+               <property name="maximum">
+                <number>100</number>
+               </property>
+               <property name="value">
+                <number>0</number>
+               </property>
+               <property name="sliderPosition">
+                <number>0</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+               <property name="tickInterval">
+                <number>50</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>No</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_10">
+             <item>
+              <widget class="QLabel" name="getUpEarlyLabel_4">
+               <property name="text">
+                <string>How late is late?</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTimeEdit" name="lateTimeEdit"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="groupBox_4">
+          <property name="title">
+           <string>I love long breaks between classes.</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <item>
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string>Yes</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="intervalHorizontalSlider">
+               <property name="minimum">
+                <number>-100</number>
+               </property>
+               <property name="maximum">
+                <number>100</number>
+               </property>
+               <property name="value">
+                <number>0</number>
+               </property>
+               <property name="sliderPosition">
+                <number>0</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksAbove</enum>
+               </property>
+               <property name="tickInterval">
+                <number>50</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_15">
+               <property name="text">
+                <string>No</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <item>
+              <widget class="QLabel" name="getUpEarlyLabel_5">
+               <property name="text">
+                <string>How long is long?</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTimeEdit" name="intervalTimeEdit"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="3">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="title">
+           <string>Advanced Config (disables corresponding intuitive policy setting)</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <property name="verticalSpacing">
+            <number>3</number>
+           </property>
+           <item row="3" column="0">
+            <widget class="QLabel" name="requiredBreakLabel">
+             <property name="text">
+              <string>Required Breaks</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="intervalPenaltyLabel">
+             <property name="text">
+              <string>Interval Penalty</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="latePenaltyLineEdit">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>(time1, penalty1), (time2, penalty2) ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="intervalPenaltyLineEdit">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>(time1, penalty1), (time2, penalty2) ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="earlyPenaltyLabel">
+             <property name="text">
+              <string>Early Penalty</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="requiredBreaksLineEdit">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>(start_time1, end_time1, length1, penalty1), (start_time2, end_time2, length2, penalty2) ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="earlyPenaltyLineEdit">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>(time1, penalty1), (time2, penalty2) ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="LatePenaltyLabel">
+             <property name="text">
+              <string>Late Penalty</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="2" rowspan="3">
+         <widget class="QGroupBox" name="groupBox_5">
+          <property name="title">
+           <string>I need a break </string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="1" column="1">
+            <widget class="QSlider" name="breakHorizontalSlider">
+             <property name="maximum">
+              <number>100</number>
+             </property>
+             <property name="value">
+              <number>20</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="tickPosition">
+              <enum>QSlider::TicksAbove</enum>
+             </property>
+             <property name="tickInterval">
+              <number>25</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>I mean it</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>Don't care</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>from around</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTimeEdit" name="breakStartTimeEdit"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_11">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>to</string>
+               </property>
+               <property name="textFormat">
+                <enum>Qt::AutoText</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTimeEdit" name="breakEndTimeEdit"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>and for</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTimeEdit" name="breakLenTimeEdit"/>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_13">
+               <property name="text">
+                <string>(length)</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="0" colspan="4">
+            <widget class="QPushButton" name="addBreakPushButton">
+             <property name="text">
+              <string>Add</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="4">
+            <widget class="QTreeWidget" name="breakTreeWidget">
+             <attribute name="headerDefaultSectionSize">
+              <number>100</number>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>Start</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>End</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Length</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Cost</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="scheduleTab">
+       <attribute name="title">
+        <string>Course Plan</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="scheduleTabHorizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QTreeWidget" name="scheduleScoreTreeWidget">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="columnCount">
+             <number>6</number>
+            </property>
+            <attribute name="headerDefaultSectionSize">
+             <number>80</number>
+            </attribute>
+            <column>
+             <property name="text">
+              <string>Schedule</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Total</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Early</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Late</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Interval</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Breaks</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTreeWidget" name="scheduleDetailsTreeWidget">
+            <column>
+             <property name="text">
+              <string>Course</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Type</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Section</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Time</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Days</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Registered</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Closed</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Instructor</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Location</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="updatPushButton">
+            <property name="text">
+             <string>Update</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

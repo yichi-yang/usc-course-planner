@@ -2,7 +2,7 @@ class Section:
 
     weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"]
 
-    def __init__(self, name, section_id, section_type, time, days, registered, closed, instructor, location, apply_penalty=True):
+    def __init__(self, name, section_id, section_type, time, days, registered, closed, instructor, location, include=True, apply_penalty=True):
         self.name = name
         self.section_id = section_id
         self.section_type = section_type
@@ -14,6 +14,7 @@ class Section:
         self.location = location
         self.days_list = []
         self.start_end = tuple()
+        self.include = include
         self.apply_penalty = apply_penalty
 
         split = self.time.find("-")

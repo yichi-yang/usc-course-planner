@@ -67,13 +67,13 @@
           <item>
            <widget class="QLineEdit" name="classNameLineEdit">
             <property name="inputMask">
-             <string/>
+             <string>AAaa-999a</string>
             </property>
             <property name="text">
-             <string/>
+             <string>-</string>
             </property>
             <property name="maxLength">
-             <number>8</number>
+             <number>9</number>
             </property>
             <property name="placeholderText">
              <string>abcd-101</string>

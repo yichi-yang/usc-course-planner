@@ -230,6 +230,8 @@ class My_MainWindow(Ui_MainWindow):
         self.solve_schedule_thread.update_count.connect(
             self.handle_schedule_calc_update)
 
+        self.scheduleScoreTreeWidget.clear()
+        self.scheduleDetailsTreeWidget.clear()
         self.solve_schedule_thread.start()
 
     def handle_schedule_calc_results(self, thread):
@@ -249,7 +251,6 @@ class My_MainWindow(Ui_MainWindow):
                 fields.append(str("{:.2f}".format(self.best_schedules[i][4])))
                 fields.append(str("{:.2f}".format(self.best_schedules[i][5])))
                 num_score_pair_list.append(QTreeWidgetItem(None, fields))
-            self.scheduleScoreTreeWidget.clear()
             self.scheduleScoreTreeWidget.insertTopLevelItems(
                 0, num_score_pair_list)
         del self.solve_schedule_thread

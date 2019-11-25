@@ -157,6 +157,8 @@ class My_MainWindow(Ui_MainWindow):
         self.plot_canvas.draw()
 
     def calculate_schedules(self):
+        if(self.solve_schedule_thread):
+            return
         list_of_componets = []
         self.tree_model.lock(True)
         for course in self.tree_model.root.data:
@@ -253,7 +255,7 @@ class My_MainWindow(Ui_MainWindow):
                 num_score_pair_list.append(QTreeWidgetItem(None, fields))
             self.scheduleScoreTreeWidget.insertTopLevelItems(
                 0, num_score_pair_list)
-        del self.solve_schedule_thread
+        self.solve_schedule_thread = None
 
     def handle_schedule_calc_update(self, count):
         self.statusBar.showMessage(

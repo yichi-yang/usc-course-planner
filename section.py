@@ -1,6 +1,6 @@
 class Section:
 
-    weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+    weekdays = ["M", "Tue", "W", "Thu", "F"]
 
     def __init__(self, name, section_id, section_type, time, days, registered, closed, instructor, location, include=True, apply_penalty=True):
         self.name = name
